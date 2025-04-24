@@ -21,7 +21,7 @@ class FoodItems(models.Model):
     price = models.DecimalField(max_digits=10,decimal_places=2)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='food_items')
     food_type = models.CharField(max_length=2,choices=FOOD_CHOICES,default='V')
-    image = models.ImageField(upload_to='food',null=True,blank=True)
+    image = models.URLField(max_length=500,null=True,blank=True)
     is_available = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
